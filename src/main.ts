@@ -10,6 +10,7 @@ import { Home } from './app/components/home/home';
   selector: 'app-root',
   template: `
     <app-header></app-header>
+    <app-home></app-home>
   `,
   imports: [Header, Home],
 })
@@ -25,5 +26,7 @@ bootstrapApplication(App, {
         preset: Aura,
       },
     }),
+
+    
   ],
 });
