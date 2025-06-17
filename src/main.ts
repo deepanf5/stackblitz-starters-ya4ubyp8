@@ -5,14 +5,15 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { Header } from './app/components/header/header';
 import { Home } from './app/components/home/home';
+import { RouterModule, provideRouter } from '@angular/router';
+import { Catalog } from './app/components/catalog/catalog';
 
 @Component({
   selector: 'app-root',
   template: `
-    <app-header></app-header>
-    <app-home></app-home>
+   <router-outlet></router-outlet>
   `,
-  imports: [Header, Home],
+  imports: [Header, Home,RouterModule],
 })
 export class App {
   name = 'auto bots';
@@ -26,5 +27,15 @@ bootstrapApplication(App, {
         preset: Aura,
       },
     }),
+    provideRouter([
+      {
+        path:'',component:Home
+      },
+      {
+        path:'catalog',component:Catalog
+      }
+    ])
+
+    
   ],
 });
